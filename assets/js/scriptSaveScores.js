@@ -16,8 +16,9 @@ sortedScores.push(userScores);
 sortedScores.sort(function (a,b) {
     return b.yourScore - a.yourScore
 });
-// highScores.splice(5, 1);
+
 
 localStorage.setItem("sortedScores", JSON.stringify(sortedScores));
 localStorage.setItem("userScores", JSON.stringify(userScores));
+window.location.replace("index.html");
 });

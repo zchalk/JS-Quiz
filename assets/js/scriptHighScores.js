@@ -5,5 +5,5 @@ console.log(sortedScores);
 for (let i = 0; i < sortedScores.length; i++) {
     var eachScore = document.createElement("li");
     scoreList.appendChild(eachScore);
-    eachScore.innerHTML += sortedScores.initials + " - - - " + sortedScores.yourScore;
+    eachScore.innerHTML += sortedScores[i].initials + " - - - " + sortedScores[i].yourScore;
 }
