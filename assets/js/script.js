@@ -3,51 +3,52 @@ var answers = document.querySelectorAll(".answerFill");
 console.log(answers);
 var timerEl = document.getElementById("timer");
 var scoreEl = document.getElementById("score");
-var interval;
+var score = 0;
+var interval = 0;
 var secondCounter = document.getElementById("timer");
 var seconds = 60;
 var questionTracker = 0;
 
 var possibleQuestions = [
     {
-      questionProp: "What does API stand for?",
-      choice0: "Application Platform Interface.",
-      choice1: "Application Programming Interface",
-      choice2: "Authorized Programming Interface.",
-      choice3: "Application Platform In-Browser",
-      answer: 1
+      questionIOP: "What does API stand for?",
+      answers0: "Application Platform Interface.",
+      answers1: "Application Programming Interface",
+      answers2: "Authorized Programming Interface.",
+      answers3: "Application Platform In-Browser",
+      correctAnswer: 1
     },
     {
-      questionProp:"What is JQuery is to JavaScript as",
-      choice0: "Mother is to Daughter.",
-      choice1: "Square is to Rectangle.",
-      choice2: "Caluculator is to Math.",
-      choice3: "In is to Out.",
-      answer: 2
+      questionIOP:"What is JQuery is to JavaScript as",
+      answers0: "Mother is to Daughter.",
+      answers1: "Square is to Rectangle.",
+      answers2: "Caluculator is to Math.",
+      answers3: "In is to Out.",
+      correctAnswer: 2
     },
     {
-      questionProp: "How do we declare variables in Javascript?",
-      choice0: "variable varName =",
-      choice1: "var varName =",
-      choice2: "v varName =",
-      choice3: "You cannot declare variables in JavaScript",
-      answer: 1
+      questionIOP: "How do we declare variables in Javascript?",
+      answers0: "variable varName =",
+      answers1: "var varName =",
+      answers2: "v varName =",
+      answers3: "You cannot declare variables in JavaScript",
+      correctAnswer: 1
     },
     {
-      questionProp: "When we want aspects of our HTML to become interactable we often add this in our JavaScript?",
-      choice0: "addEventListener()",
-      choice1: "addEventAction()",
-      choice2: "addButtonListener()",
-      choice3: "addListener()",
-      answer: 0
+      questionIOP: "When we want aspects of our HTML to become interactable we often add this in our JavaScript?",
+      answers0: "addEventListener()",
+      answers1: "addEventAction()",
+      answers2: "addButtonListener()",
+      answers3: "addListener()",
+      correctAnswer: 0
     },
     {
-      questionProp: "What is the proper way to attain a random value in JavaScript?",
-      choice0: "Math.ran()",
-      choice1: "random.Math()",
-      choice2: "getRandom()",
-      choice3: "Math.random()",
-      answer: 3
+      questionIOP: "What is the proper way to attain a random value in JavaScript?",
+      answers0: "Math.ran()",
+      answers1: "random.Math()",
+      answers2: "getRandom()",
+      answers3: "Math.random()",
+      correctAnswer: 3
     }
   ];
 
@@ -68,19 +69,37 @@ var possibleQuestions = [
     }
     }, 1000)
   };
+
   function askQuestions() {
-    question.textContent = possibleQuestions[questionTracker].questionProp;
+    question.textContent = possibleQuestions[questionTracker].questionIOP;
     console.log(questionTracker);
     for (let i = 0; i < answers.length; i++) {
-      answers[i].textContent = possibleQuestions[questionTracker]["choice" + i]
+      answers[i].textContent = possibleQuestions[questionTracker]["answers" + i]
     }
   };
 
   for (let i = 0; i < answers.length; i++) {
-    answers[i].addEventListener("click", checkAnswer)
-  }
-function checkAnswer() {
+    answers[i].addEventListener("click", function(event) {
+
   console.log("click");
+  var chosenAnswer = event.target;
+  var chosenAnswerNumber = chosenAnswer.dataset.index;
+  console.log(chosenAnswerNumber);
+
+  if (chosenAnswerNumber == possibleQuestions[questionTracker].correctAnswer) {
+    score++;
+    console.log(score);
+    scoreEl.textContent=score;
+  }
+  if (questionTracker == 4) {
+    window.clearInterval(interval);
+    score = seconds+score;
+    scoreEl.textContent=score;
+    localStorage.setItem('lastGameScore', score);
+    return window.location.assign("end.html");
+  } 
+  else {
   questionTracker++;
-  askQuestions();
-};
+  askQuestions(); 
+}
+})};
