@@ -8,7 +8,7 @@ var interval = 0;
 var secondCounter = document.getElementById("timer");
 var seconds = 60;
 var questionTracker = 0;
-
+// i used an array of objects method to fill my questions
 var possibleQuestions = [
     {
       questionIOP: "What does API stand for?",
@@ -57,19 +57,20 @@ var possibleQuestions = [
     askQuestions();
   };
   startGame();
-
+// this function starts the timer as well as boots users who take too long
   function startTimer() {
    interval= window.setInterval(function() {
     seconds--;
     if (seconds < 0) {
       window.clearInterval(interval);
       window.alert ("Time is Up!");
+      window.location.replace("index.html");
     } else {
       secondCounter.textContent = seconds; 
     }
     }, 1000)
   };
-
+// populates questions and answers from the array into html
   function askQuestions() {
     question.textContent = possibleQuestions[questionTracker].questionIOP;
     console.log(questionTracker);
@@ -77,7 +78,7 @@ var possibleQuestions = [
       answers[i].textContent = possibleQuestions[questionTracker]["answers" + i]
     }
   };
-
+// this both adds an event listener to each answer choice but also checks answers, tallys the score, and redirects to save page
   for (let i = 0; i < answers.length; i++) {
     answers[i].addEventListener("click", function(event) {
 

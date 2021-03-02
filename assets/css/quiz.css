@@ -51,9 +51,14 @@ div h1 {
     margin-bottom: 1.5rem;
     width: 100%;
     border: 0.3rem solid var(--accent_color_dark);
-    background-color: var(--accent_background_color);
 }
 p {
+    color: var(--font_color);
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 2rem;
+    outline: 0.25rem solid var(--accent_color_dark);
+    padding: 2rem;
     margin-bottom: 0;
 }
 
@@ -65,10 +70,8 @@ p {
 
 .choice-letter {
     padding: 1rem 1rem;
-    background-color: var(--accent_background_color);
     font-size: 1.75rem;
     color: var(--font_color);
-    display: flex;
     align-items: center;
 }
 
