@@ -91,6 +91,9 @@ var possibleQuestions = [
     console.log(score);
     scoreEl.textContent=score;
   }
+  if (chosenAnswerNumber !== possibleQuestions[questionTracker].correctAnswer) {
+    seconds--;
+  }
   if (questionTracker == 4) {
     window.clearInterval(interval);
     score = seconds+score;
