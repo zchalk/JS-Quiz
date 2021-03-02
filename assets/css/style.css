@@ -19,10 +19,10 @@
   h1 {
     font-size: 5rem;
     color: var(--font_color);
-    text-justify: inter-word;
     text-align: center;
     margin-bottom: 6rem;
   }
+
 
   p {
     background-color: var(--accent_background_color);
@@ -43,7 +43,6 @@
 
  .button {
   font-size: 2rem;
-  font-weight: bold;
   color: var(--font_color);
   background-color: var(--accent_background_color);
   padding: 2rem 2rem;
@@ -56,7 +55,38 @@
 
  .button:hover {
   filter:brightness(120%);
-  background-color: rgb(247, 156, 72);
   box-shadow: -0.25rem 0.25rem 0.75rem var(--accent_color_lite);
+}
+#endH1 {
+  font-size: 3rem;
+}
+
+#score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#score a {
+  font-size: 1.5rem;
+}
+.label {
+  font-size: 2rem;
+}
+
+.endbutton { 
+  font-size: 1rem;
+  color: var(--font_color);
+  background-color: var(--accent_background_color);
+  padding: .25rem .5rem;
+  text-align: center;
+  border: 0.3rem solid var(--accent_color_dark);
+  margin-bottom: 2rem;
+}
+.endbutton:hover {
+  filter:brightness(120%);
+  box-shadow: -0.25rem 0.25rem 0.75rem var(--accent_color_lite);
+}
+#input {
+  font-size: 1.5rem;
 }
  
