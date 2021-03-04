@@ -1,7 +1,7 @@
 # JS-Quiz
 
 
-https://https://zchalk.github.io/JS-Quiz/
+https://zchalk.github.io/JS-Quiz/
 
 ## My Task
 
