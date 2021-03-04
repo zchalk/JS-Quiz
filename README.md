@@ -1,6 +1,6 @@
 # JS-Quiz
 
-
+![alt text](assets/images/javaQuiz.png)
 https://zchalk.github.io/JS-Quiz/
 
 ## My Task
